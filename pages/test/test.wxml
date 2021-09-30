@@ -1,0 +1,12 @@
+<!--div-->
+<view class="div1">12333</view>
+<!--span-->
+<text></text>
+
+<view>{{str}}</view>
+<button bindtap="reverseStr">按钮</button>
+
+<view wx:for="{{arr}}" wx:key="index">
+    {{index}}{{item}}
+</view>
+<button bindtap="pushItem">按钮</button>
