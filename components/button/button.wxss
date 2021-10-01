@@ -1,6 +1,5 @@
-/* components/_button/button.wxss */
 button::after{border: none}
-.button-hover{opacity: 0.9;}
+.active{opacity: 0.9;}
 .tomato-button{
     width: 540rpx;
     height: 80rpx;

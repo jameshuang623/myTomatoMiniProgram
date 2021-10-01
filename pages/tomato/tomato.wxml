@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="clock">
+        <t-clock text="{{time}}" fontSize="56"></t-clock>
+    </view>
+    <view class="stop">
+        <t-button type="change" size="mini" text="暂停" bindtap="clearTimer"
+        wx:if="{{timerStatus === 'start'}}"></t-button>
+        <t-button type="change" size="mini" text="开始" bindtap="startTimer"
+        wx:else="{{timerStatus === 'stop'}}"></t-button>
+    </view>
+    <view class="abandon">
+        <t-button size="mini" text="放弃"></t-button>
+    </view>
+    <view class="again">
+        <t-button size="mini" type="change" text="再来一组"></t-button>
+    </view>
+</view>
