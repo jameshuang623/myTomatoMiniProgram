@@ -1,15 +1,13 @@
 // pages/tomato/tomato.js
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     timer: null,
     data: {
-        defaultSecond: 30,
+        defaultSecond: 1500,
         time: "",
-        timerStatus: "stop"
-
+        timerStatus: "stop",
+        confirmVisible: false,
+        againButtonVisible: false,
+        finishConfirmVisible: false,
     },
     /**
      * 生命周期函数--监听页面显示
@@ -21,12 +19,19 @@ Page({
         this.setData({timerStatus: "start"})
         this.changeTime()
         this.timer = setInterval(() => {
-            if (this.data.defaultSecond === 0) {
-                return this.clearTimer()
-            }
             this.data.defaultSecond = this.data.defaultSecond - 1
             this.changeTime()
+            if (this.data.defaultSecond <= 0) {
+                this.setData({againButtonVisible: true})
+                this.setData({finishConfirmVisible: true})
+                return this.clearTimer()
+            }
         }, 1000)
+    },
+    againTimer() {
+        this.data.defaultSecond = 1500
+        this.setData({againButtonVisible: false})
+        this.startTimer()
     },
     clearTimer() {
         clearInterval(this.timer)
@@ -46,6 +51,26 @@ Page({
             m = '0' + m
         }
         this.setData({time: `${m}:${s}`})
+    },
+    confirmAbandon(event) {
+        let content = event.detail
+        wx.navigateBack({
+            to: -1
+        })
+    },
+    confirmFinish(event) {
+        let content = event.detail
+    },
+    confirmCancel() {
+        this.setData({finishConfirmVisible: false})
+    },
+    showConfirm() {
+        this.setData({confirmVisible: true})
+        this.clearTimer()
+    },
+    hideConfirm() {
+        this.setData({confirmVisible: false})
+        this.startTimer()
     },
 
     /**

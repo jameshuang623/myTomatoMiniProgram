@@ -9,9 +9,10 @@
     </scroll-view>
     <t-button type="change" class="createButton" text="创建任务" bindtap="showConfirm"></t-button>
     <view class="tomato-wrapper">
-        <view class="tomato">
+        <navigator class="tomato" url="/pages/tomato/tomato">
             <t-clock text="点击开始闹钟"></t-clock>
-        </view>
+        </navigator>
+
     </view>
     <g-confirm visible="{{visibleConfirm}}" placeholder="输入点什么"
                bindconfirm="confirmCreate" bindcancel="hideConfirm"></g-confirm>

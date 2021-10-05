@@ -18,6 +18,7 @@ Component({
         },
         cancel(){
             this.setData({visible: false})
+            this.triggerEvent('cancel')
         },
         watchValue(event){
             this.data.value = event.detail.value
