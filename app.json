@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/binding/binding",
+    "pages/login/login",
     "pages/me/me",
     "pages/home/home",
     "pages/tomato/tomato",
@@ -8,8 +10,28 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "番茄闹钟",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#F6705A",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "专注",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-active.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
